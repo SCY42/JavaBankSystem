@@ -27,7 +27,6 @@ public class Account
         System.out.println("1 - 입금");
         System.out.println("2 - 출금");
         System.out.println("3 - 이체");
-        System.out.println("4 - 거래 내역 조회");
         String selection = Scan.sc.nextLine();
 
         switch (selection) {
@@ -39,9 +38,6 @@ public class Account
                 break;
             case "3":
             	this.transition();
-                break;
-            case "4":
-                System.out.println("거래 내역 조회");
                 break;
             default:
                 System.out.println("잘못된 입력입니다.");
