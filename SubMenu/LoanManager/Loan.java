@@ -1,13 +1,14 @@
-package LoanManager;
+package SubMenu.LoanManager;
 
 import java.util.Scanner;
 
 public class Loan {
 	public boolean isloan;
 	public int amount;
+	public int balance; // 에러 방지를 위한 임시 변수
 	Scanner sc = new Scanner(System.in);
 	
-	public loan()
+	public Loan()
     {
 		this.isloan = false;
 		this.amount = 0;

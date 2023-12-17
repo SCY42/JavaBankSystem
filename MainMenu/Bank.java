@@ -1,35 +1,42 @@
-import java.util.Scanner;
-import UserManager.User;
-import UserManager.UserHashMap;
-import AccountManager.Account;
+package MainMenu;
 
+import java.util.Scanner;
+
+import SubMenu.UserManager.User;
 
 public class Bank
 {
+    public static Scanner sc = new Scanner(System.in);
+
     public static void main(String[] args)
     {
+        mainMenu();
+    }
+
+    public static void mainMenu()
+    {
         System.out.println("00은행 서비스에 어서오세요!");
-        User user = Bank.login();
+        User user = userLogin();
         System.out.println(String.format("%s님 안녕하세요! 어떤 서비스를 이용하시겠습니까?", user.username));
         Bank.selectMenu(user);
     }
-    
-    public static User login()
+
+    public static User userLogin()
     {
-        Scanner sc = new Scanner(System.in);
+        User user = User.login();
+        if (user == null) {  // 로그인 실패 시
+            System.out.println("사용자를 찾을 수 없습니다.");
+            System.out.println("재시도 - r | 회원 가입 - n | 메인 메뉴 - Enter");
+            String input = sc.nextLine();
 
-        System.out.print("ID: ");
-        String id = sc.nextLine();
-        System.out.print("PW: ");
-        String pw = sc.nextLine();
-
-        sc.close();
-        // 확인용
-        System.out.println(String.format("Your ID: %s", id));
-        System.out.println(String.format("Your PW: %s", pw));
-
-        String[] userLoginInfo = {id, pw};
-        return UserHashMap.findUser(userLoginInfo);
+            if (input == "r")
+                userLogin();
+            else if (input == "n")
+                User.register();
+            else
+                mainMenu();
+        }
+        return user;
     }
 
     public static void selectMenu(User user)
@@ -39,13 +46,11 @@ public class Bank
         System.out.println("3 - 환전");
         System.out.println("4 - 계정 설정");
 
-        Scanner sc = new Scanner(System.in);
         String selection = sc.nextLine();
-        sc.close();
 
         switch (selection) {
             case "1":
-                user.accounts[0].AccountMenu();
+                user.accounts.get(0).AccountMenu();
                 break;
             case "2":
                 System.out.println("대출");

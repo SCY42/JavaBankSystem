@@ -1,7 +1,5 @@
-package UserManager;
+package SubMenu.UserManager;
 import java.util.HashMap;
-
-class NoSuchUserException extends RuntimeException {}
 
 public class UserHashMap
 {
@@ -23,7 +21,7 @@ public class UserHashMap
             User user = userList.get(idPw);
             return user;
         } else {
-            throw new NoSuchUserException();
+            return null;
         }
     }
 }

@@ -1,4 +1,4 @@
-package AccountManager;
+package SubMenu.AccountManager;
 
 import java.util.Scanner;
 
@@ -90,7 +90,7 @@ public class Account
             int amount = Integer.parseInt(this.sc.nextLine());
             this.balance -= amount;
             //다른 사용자 계좌에 amount 플러스
-            System.out.println(String.format("성공적으로 %d원이 이체되었습니다!",amount));
+            System.out.println(String.format("%d에게 성공적으로 %d원이 이체되었습니다!", who, amount));
             System.out.println(String.format("현재 잔액: %d", this.balance));
         }
         catch (NumberFormatException e) {
