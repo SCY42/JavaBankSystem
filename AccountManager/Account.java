@@ -55,9 +55,16 @@ public class Account
         System.out.println("입금할 금액을 입력하세요: ");
         try {
             int amount = Integer.parseInt(this.sc.nextLine());
-            this.balance += amount;
-            System.out.println(String.format("성공적으로 %d원이 입금되었습니다!", amount));
-            System.out.println(String.format("현재 잔액: %d", this.balance));
+            if (amount>0)
+            {
+                this.balance += amount;
+                System.out.println(String.format("성공적으로 %d원이 입금되었습니다!", amount));
+                System.out.println(String.format("현재 잔액: %d", this.balance));
+            }
+            else{
+                System.out.println("잘못된 입력입니다.이전 화면으로 돌아갑니다.");
+                this.deposit();
+            }
         }
         catch (NumberFormatException e) {
             System.out.println("잘못된 입력입니다.");
@@ -70,9 +77,16 @@ public class Account
         System.out.println("출금할 금액을 입력하세요: ");
         try {
             int amount = Integer.parseInt(this.sc.nextLine());
-            this.balance -= amount;
-            System.out.println(String.format("성공적으로 %d원이 출금되었습니다!",amount));
-            System.out.println(String.format("현재 잔액: %d", this.balance));
+            if(amount >0)
+            {
+                this.balance -= amount;
+                System.out.println(String.format("성공적으로 %d원이 출금되었습니다!",amount));
+                System.out.println(String.format("현재 잔액: %d", this.balance));
+            }
+            else{
+                System.out.println("잘못된 입력입니다.이전 화면으로 돌아갑니다.");
+                this.withdraw();
+            }
         }
         catch (NumberFormatException e) {
             System.out.println("잘못된 입력입니다.");
@@ -88,10 +102,16 @@ public class Account
         	int who = Integer.parseInt(this.sc.nextLine());
         	System.out.println("이체할 금액을 입력하세요: ");
             int amount = Integer.parseInt(this.sc.nextLine());
+            if(amount>0){
             this.balance -= amount;
             //다른 사용자 계좌에 amount 플러스
             System.out.println(String.format("%d에게 성공적으로 %d원이 이체되었습니다!", who, amount));
             System.out.println(String.format("현재 잔액: %d", this.balance));
+            }
+            else{
+                System.out.println("잘못된 입력입니다.이전 화면으로 돌아갑니다.");
+                this.transition();
+            }
         }
         catch (NumberFormatException e) {
             System.out.println("잘못된 입력입니다.");
