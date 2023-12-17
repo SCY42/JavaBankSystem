@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+import AccountManager.Account;
 import UserManager.User;
 
 public class Bank
@@ -27,10 +28,10 @@ public class Bank
             System.out.println("재시도 - r | 회원 가입 - n | 메인 메뉴 - Enter");
             String input = sc.nextLine();
 
-            if (input == "r")
+            if (input.equals("r"))
                 userLogin();
-            else if (input == "n")
-                User.register();
+            else if (input.equals("n"))
+                user = User.register();
             else
                 mainMenu();
         }
@@ -48,7 +49,12 @@ public class Bank
 
         switch (selection) {
             case "1":
-                user.accounts.get(0).AccountMenu();
+                try {
+                    user.accounts.get(0).accountMenu();
+                } catch (IndexOutOfBoundsException e) {
+                    Account.newAccount(user);
+                    user.accounts.get(0).accountMenu();
+                }
                 break;
             case "2":
                 System.out.println("대출");

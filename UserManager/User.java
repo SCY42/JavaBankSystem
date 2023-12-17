@@ -18,7 +18,7 @@ public class User
         this.accounts = new ArrayList<>();
     }
 
-    public static void register()
+    public static User register()
     {
         System.out.println("ID: ");
         String id = Scan.sc.nextLine();
@@ -30,6 +30,8 @@ public class User
         User user = new User(id, pw, username);
         String[] userLoginInfo = {id, pw};
         UserHashMap.userList.put(userLoginInfo, user);
+
+        return user;
     }
 
     public static void deleteUser(String[] userLoginInfo, User user)
