@@ -112,8 +112,8 @@ public class Account
             System.out.println(String.format("%d에게 성공적으로 %d원이 이체되었습니다!", who, amount));
             System.out.println(String.format("현재 잔액: %d", this.balance));
         } catch (NumberFormatException e) {
-        System.out.println("잘못된 입력입니다.");
-        this.transition();
+            System.out.println("잘못된 입력입니다.");
+            this.transition();
         }
         
     }

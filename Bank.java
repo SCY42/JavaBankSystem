@@ -63,6 +63,7 @@ public class Bank
                 break;
             default:
                 System.out.println("잘못된 입력");
+                mainMenu();
                 break;
         }
         Bank.selectMenu(user);
