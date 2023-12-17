@@ -42,8 +42,7 @@ public class Bank
     {
         System.out.println("1 - 계좌 관리");
         System.out.println("2 - 대출");
-        System.out.println("3 - 환전");
-        System.out.println("4 - 계정 설정");
+        System.out.println("3 - 계정 설정");
 
         String selection = sc.nextLine();
 
@@ -60,9 +59,6 @@ public class Bank
                 System.out.println("대출");
                 break;
             case "3":
-                System.out.println("환전");
-                break;
-            case "4":
                 System.out.println("계정 설정");
                 break;
             default:
