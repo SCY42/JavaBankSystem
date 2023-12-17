@@ -85,9 +85,16 @@ public class Account
                 System.out.println("잘못된 입력입니다.");
                 amount = Integer.parseInt(Scan.sc.nextLine());
             }
+            if(this.balance>=amount){
             this.balance -= amount;
+            
             System.out.println(String.format("성공적으로 %d원이 출금되었습니다!",amount));
             System.out.println(String.format("현재 잔액: %d", this.balance));
+            }
+            else{
+                System.out.println("잔액이 부족합니다.");
+                this.accountMenu();
+            }
         }
         catch (NumberFormatException e) {
             System.out.println("잘못된 입력입니다.");
