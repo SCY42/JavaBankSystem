@@ -1,12 +1,9 @@
-import java.util.Scanner;
-
 import AccountManager.Account;
 import UserManager.User;
+import Scan.Scan;
 
 public class Bank
 {
-    public static Scanner sc = new Scanner(System.in);
-
     public static void main(String[] args)
     {
         mainMenu();
@@ -26,7 +23,7 @@ public class Bank
         if (user == null) {  // 로그인 실패 시
             System.out.println("사용자를 찾을 수 없습니다.");
             System.out.println("재시도 - r | 회원 가입 - n | 메인 메뉴 - Enter");
-            String input = sc.nextLine();
+            String input = Scan.sc.nextLine();
 
             if (input.equals("r"))
                 userLogin();
@@ -44,7 +41,7 @@ public class Bank
         System.out.println("2 - 대출");
         System.out.println("3 - 계정 설정");
 
-        String selection = sc.nextLine();
+        String selection = Scan.sc.nextLine();
 
         switch (selection) {
             case "1":
