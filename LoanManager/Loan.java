@@ -44,8 +44,9 @@ public class Loan {
 		try {
         int amount = Integer.parseInt(this.sc.nextLine());
         if(amount>100) {
-        	System.out.println("최대 1000만원까지 가능합니다.");
+        	System.out.println("최대 100만원까지 가능합니다.");
         	this.getloan();
+		amount = 0;
         }
         //사용자 후 수정 
 	if(amount>0)
@@ -69,7 +70,7 @@ public class Loan {
 		}
 		else {
 			System.out.println("신규 대출입니다.");
-			System.out.println("1000만원 추가 대출 가능합니다.");
+			System.out.println("100만원 추가 대출 가능합니다.");
 		}
 	}
 	
