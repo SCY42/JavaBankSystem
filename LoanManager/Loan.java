@@ -48,8 +48,11 @@ public class Loan {
         	this.getloan();
         }
         //사용자 후 수정 
+	if(amount>0)
+	{
         System.out.println(amount+"만원 대출 완료했습니다.");
         //System.out.println("현재 잔액 : "+this.balance);
+	}
         }catch (NumberFormatException e) {
             System.out.println("잘못된 입력입니다.");
             this.getloan();
