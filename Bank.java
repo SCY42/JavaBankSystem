@@ -6,13 +6,18 @@ public class Bank
 {
     public static void main(String[] args)
     {
-        mainMenu();
+        loginMenu();
+    }
+    
+    public static void loginMenu()
+    {
+        System.out.println("자바은행 서비스에 어서오세요!");
+        User user = userLogin();
+        mainMenu(user);
     }
 
-    public static void mainMenu()
+    public static void mainMenu(User user)
     {
-        System.out.println("00은행 서비스에 어서오세요!");
-        User user = userLogin();
         System.out.println(String.format("%s님 안녕하세요! 어떤 서비스를 이용하시겠습니까?", user.username));
         Bank.selectMenu(user);
     }
@@ -30,7 +35,7 @@ public class Bank
             else if (input.equals("n"))
                 user = User.register();
             else
-                mainMenu();
+                mainMenu(user);
         }
         return user;
     }
@@ -40,7 +45,8 @@ public class Bank
         System.out.println("1 - 계좌 관리");
         System.out.println("2 - 대출");
         System.out.println("3 - 계정 설정");
-
+        System.out.println("Enter - 메인 메뉴");
+        
         String selection = Scan.sc.nextLine();
 
         switch (selection) {
@@ -56,11 +62,11 @@ public class Bank
                 System.out.println("대출");
                 break;
             case "3":
-                System.out.println("계정 설정");
+                User.userSetting(user);
+                loginMenu();
                 break;
             default:
-                System.out.println("잘못된 입력");
-                mainMenu();
+                mainMenu(user);
                 break;
         }
         Bank.selectMenu(user);
