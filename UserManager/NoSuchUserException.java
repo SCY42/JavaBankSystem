@@ -1,3 +1,3 @@
-package SubMenu.UserManager;
+package UserManager;
 
 public class NoSuchUserException extends RuntimeException {}

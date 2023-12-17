@@ -1,9 +1,8 @@
-package SubMenu.UserManager;
+package UserManager;
 import java.util.ArrayList;
 
-import MainMenu.Bank;
-import SubMenu.AccountManager.Account;
-
+import Scan.Scan;
+import AccountManager.Account;
 
 // 유저 정보 클래스
 public class User
@@ -22,11 +21,11 @@ public class User
     public static void register()
     {
         System.out.println("ID: ");
-        String id = Bank.sc.nextLine();
+        String id = Scan.sc.nextLine();
         System.out.println("PW: ");
-        String pw = Bank.sc.nextLine();
+        String pw = Scan.sc.nextLine();
         System.out.println("Your Username: ");
-        String username = Bank.sc.nextLine();
+        String username = Scan.sc.nextLine();
         
         User user = new User(id, pw, username);
         String[] userLoginInfo = {id, pw};
@@ -41,9 +40,9 @@ public class User
     public static User login()
     {
         System.out.print("ID: ");
-        String id = Bank.sc.nextLine();
+        String id = Scan.sc.nextLine();
         System.out.print("PW: ");
-        String pw = Bank.sc.nextLine();
+        String pw = Scan.sc.nextLine();
 
         // 확인용
         System.out.println(String.format("Your ID: %s", id));

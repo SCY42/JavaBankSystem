@@ -1,4 +1,4 @@
-package SubMenu.LoanManager;
+package LoanManager;
 
 import java.util.Scanner;
 

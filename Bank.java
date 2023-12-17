@@ -1,8 +1,6 @@
-package MainMenu;
-
 import java.util.Scanner;
 
-import SubMenu.UserManager.User;
+import UserManager.User;
 
 public class Bank
 {

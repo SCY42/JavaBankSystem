@@ -1,4 +1,4 @@
-package SubMenu.UserManager;
+package UserManager;
 import java.util.HashMap;
 
 public class UserHashMap

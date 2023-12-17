@@ -1,4 +1,4 @@
-package SubMenu.AccountManager;
+package AccountManager;
 
 import java.util.Scanner;
 
