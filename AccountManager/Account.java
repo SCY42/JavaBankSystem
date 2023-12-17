@@ -27,7 +27,6 @@ public class Account
         System.out.println("1 - 입금");
         System.out.println("2 - 출금");
         System.out.println("3 - 이체");
-        System.out.println("4 - 거래 내역 조회");
         String selection = Scan.sc.nextLine();
 
         switch (selection) {
@@ -39,9 +38,6 @@ public class Account
                 break;
             case "3":
             	this.transition();
-                break;
-            case "4":
-                System.out.println("거래 내역 조회");
                 break;
             default:
                 System.out.println("잘못된 입력입니다.");
@@ -85,9 +81,16 @@ public class Account
                 System.out.println("잘못된 입력입니다.");
                 amount = Integer.parseInt(Scan.sc.nextLine());
             }
+            if(this.balance>=amount){
             this.balance -= amount;
+            
             System.out.println(String.format("성공적으로 %d원이 출금되었습니다!",amount));
             System.out.println(String.format("현재 잔액: %d", this.balance));
+            }
+            else{
+                System.out.println("잔액이 부족합니다.");
+                this.accountMenu();
+            }
         }
         catch (NumberFormatException e) {
             System.out.println("잘못된 입력입니다.");
